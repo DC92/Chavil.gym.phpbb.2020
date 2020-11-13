@@ -87,9 +87,8 @@ class listener implements EventSubscriberInterface
 	// Appelé juste avant d'afficher
 	function viewtopic_modify_page_title($vars) {
 		$get = $this->request->get_super_global(\phpbb\request\request_interface::GET);
-		if (!$get['f'] && $get['t'])
-			$this->my_template = 'viewtopic';
-		if ($vars['forum_id'] == 2 && $get['p'])
+		if (!$get['f'] && $get['t'] ||
+			$get['p'])
 			$this->my_template = 'viewtopic';
 	}
 
